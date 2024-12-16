@@ -3,8 +3,15 @@ import Button from "./UI/Button";
 
 const MealItem = ({ meal }) => {
   const { name, description, price, image } = meal;
-  console.log(typeof price);
   const url = `http://localhost:3000/${image}`;
+
+  function addToCartHandler() {
+    const mealItem = {
+      id: meal.id,
+      name: meal.name,
+      price: meal.price,
+    };
+  }
   return (
     <li className="meal-item">
       <article>

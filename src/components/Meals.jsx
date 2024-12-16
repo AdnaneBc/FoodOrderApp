@@ -1,4 +1,4 @@
-import { MealsContext } from "../context/MealsContext";
+import { MealsContext } from "../store/MealsContext";
 import MealItem from "./MealItem";
 import { use } from "react";
 
