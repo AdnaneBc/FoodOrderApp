@@ -8,7 +8,6 @@ const MealItem = ({ meal }) => {
   const { name, description, price, image } = meal;
   const url = `http://localhost:3000/${image}`;
 
-  console.log(items);
   function addToCartHandler() {
     const mealItem = {
       id: meal.id,
