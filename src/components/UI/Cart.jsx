@@ -7,7 +7,7 @@ import { UserProgressContext } from "../../store/UserProgressContext";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { items } = use(CartContext);
+  const { items, addItem, removeItem } = use(CartContext);
   const { progress, hideCart } = use(UserProgressContext);
   const cartTotal = items.reduce((total, item) => {
     return total + item.price * item.quantity;
@@ -20,7 +20,12 @@ const Cart = () => {
       <h2>Your Cart</h2>
       <ul>
         {items.map((item) => (
-          <CartItem key={item.id} item={item} />
+          <CartItem
+            key={item.id}
+            item={item}
+            onAddItem={addItem}
+            onRemoveItem={removeItem}
+          />
         ))}
       </ul>
       <p className="cart-total">{currencyFormatter.format(cartTotal)}</p>

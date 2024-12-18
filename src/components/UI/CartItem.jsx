@@ -2,14 +2,13 @@ import { currencyFormatter } from "../../util/formatting";
 import { CartContext } from "../../store/CartContext";
 import { use } from "react";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item,onAddItem,onRemoveItem }) => {
   const { name, quantity, price } = item;
-  const { addItem, removeItem } = use(CartContext);
   function removeItemHandler() {
-    removeItem(item.id);
+    onRemoveItem(item.id);
   }
   function addItemHandler() {
-    addItem(item);
+    onAddItem(item);
   }
   return (
     <li className="cart-item">
